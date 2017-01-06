@@ -10,7 +10,7 @@ class BestbuyService
     stores_json = conn.get do |req|
       req.url "v1/stores(area(#{zip},25))"
       req.params['format'] = 'json'
-      req.params['show'] = 'longName,city,phone,storeType,distance'
+      req.params['show'] = 'longName,city,phone,storeType,distance,storeId'
       req.params['pageSize'] = '15'
       req.params['apiKey'] = "#{ENV['API_KEY']}"
     end
@@ -24,8 +24,7 @@ class BestbuyService
       req.params['show'] = 'storeType,hours,hoursAmPm,gmtOffset,detailedHours'
       req.params['apiKey'] = "#{ENV['API_KEY']}"
     end
-    a = json_parse(store_json.body)[:stores]
-    require "pry"; binding.pry
+    json_parse(store_json.body)[:stores].first
   end
 
   def json_parse(stores)
