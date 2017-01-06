@@ -16,6 +16,9 @@ gem "faraday"
 gem "figaro"
 gem "rspec-rails"
 gem "capybara"
+gem 'vcr'
+gem 'webmock'
+
 
 group :development do
   gem "spring"
