@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 
-describe 'BestBuyService' do
+describe 'BestbuyService' do
   context 'returns an array of stores' do
     it '.best_buy_stores' do
 
-      stores = BestBuyService.new
+      stores = BestbuyService.new
 
-      expect(store.best_buy_stores(80202).class).to eq(Array)
+      expect(stores.best_buy_stores(80202).class).to eq(Array)
     end
   end
 end
