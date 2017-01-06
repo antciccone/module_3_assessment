@@ -24,16 +24,40 @@ describe 'all items endpoint' do
 
   context 'api/vi/items/1' do
     it 'returns specified item' do
-      item = Item.create(name: 'Anthony', description: "turing student", image_url: "google.com/images" )
-      Item.create(name: 'john', description: "bu student", image_url: "google.com/images" )
+      item1 = Item.create(name: 'Anthony', description: "turing student", image_url: "google.com/images" )
+      item2 = Item.create(name: 'john', description: "bu student", image_url: "google.com/images" )
 
-      get '/api/v1/items/#{item}'
+      get "/api/v1/items/#{item1.id}"
 
-      items = JSON.parse(response.body)
+      item = JSON.parse(response.body)
 
       expect(response).to be_success
       expect(response.status).to eq(200)
-  
+      expect(item["name"]).to eq('Anthony')
+      expect(item["description"]).to eq("turing student")
+      expect(item["image_url"]).to eq("google.com/images")
+      expect(item["created_at"]).to eq(nil)
+      expect(item["updated_at"]).to eq(nil)
+    end
+  end
+
+  context 'api/vi/items' do
+      it 'creates an item' do
+      item = Item.create(name: 'Anthony', description: "turing student", image_url: "google.com/images" )
+      item_params = { name: 'john', description: 'test', image_url: 'googe.com/imagesss' }
+
+      post "/api/v1/items", item: item_params
+
+      items = JSON.parse(response.body)
+      require "pry"; binding.pry
+
+      expect(response).to be_success
+      expect(response.status).to eq(200)
+      expect(item["name"]).to eq('Anthony')
+      expect(item["description"]).to eq("turing student")
+      expect(item["image_url"]).to eq("google.com/images")
+      expect(item["created_at"]).to eq(nil)
+      expect(item["updated_at"]).to eq(nil)
     end
   end
 end
