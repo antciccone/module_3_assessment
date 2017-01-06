@@ -1,11 +1,12 @@
 class BestbuyStores
 
-  attr_reader :name, :city, :phone, :type
+  attr_reader :name, :city, :phone, :type, :distance
   def initialize(service)
-    @name   = servie[:longName]
-    @city   = servie[:city]
-    @phone  = servie[:phone]
-    @type   = servie[:storeType]
+    @name     = service[:longName]
+    @city     = service[:city]
+    @phone    = service[:phone]
+    @type     = service[:storeType]
+    @distance = service[:distance]
   end
 
   def self.stores(zip)
