@@ -7,7 +7,7 @@ class BestbuyStores
     @phone    = service[:phone]
     @type     = service[:storeType]
     @distance = service[:distance]
-    @id = service[:storeId]
+    @id       = service[:storeId]
   end
 
   def self.stores(zip)

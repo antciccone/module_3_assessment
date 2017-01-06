@@ -5,7 +5,17 @@ describe 'As a user' do
   xcontext 'When I click on a store name' do
     it 'I should see the store name' do
 
+      visit '/'
 
+      fill_in :zip, with: '80202'
+      click_button 'Search'
+
+      click_link "Best Buy - Belmar"
+
+      #expect(current_path).to eq(stores_path(id))
+      expect(page).to have_content("City")
+      expect(page).to have_content("State")
+      expect(page).to have_content("zip")
     end
   end
 end

@@ -10,6 +10,7 @@ describe 'As a user' do
       click_button 'Search'
 
       #expect(page).to have_content("16 Total Stores")
+      #need to add flash message
       expect(page).to have_content("Stores within 25 Miles")
       expect(page).to have_content("Name")
       expect(page).to have_content("Distance")
