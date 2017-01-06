@@ -44,7 +44,7 @@ describe 'all items endpoint' do
   context 'api/vi/items' do
     it 'creates an item' do
       item = Item.create(name: 'Anthony', description: "turing student", image_url: "google.com/images" )
-      item_params = { name: 'john', description: 'test', image_url: 'googe.com/imagesss' }
+      item_params = { name: 'john', description: 'test', image_url: 'google.com/images' }
 
       post "/api/v1/items", item: item_params
 
@@ -54,11 +54,11 @@ describe 'all items endpoint' do
       expect(response.status).to eq(201)
 
       expect(items.count).to eq(2)
-      expect(item["name"]).to eq('Anthony')
-      expect(item["description"]).to eq("turing student")
-      expect(item["image_url"]).to eq("google.com/images")
-      expect(items.first["created_at"]).to eq(nil)
-      expect(items.first["updated_at"]).to eq(nil)
+      expect(items.second["name"]).to eq('john')
+      expect(items.second["description"]).to eq("test")
+      expect(items.second["image_url"]).to eq("google.com/images")
+      expect(items.second["created_at"]).to eq(nil)
+      expect(items.second["updated_at"]).to eq(nil)
     end
   end
 

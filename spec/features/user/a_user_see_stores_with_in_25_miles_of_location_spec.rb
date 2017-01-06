@@ -10,10 +10,13 @@ describe 'As a user' do
       click_button 'Search'
 
       #expect(page).to have_content("16 Total Stores")
+      expect(page).to have_content("Stores within 25 Miles")
       expect(page).to have_content("Name")
       expect(page).to have_content("Distance")
       expect(page).to have_content("Phone")
       expect(page).to have_content("Store Type")
+      expect(page).to have_content("3.25")
+      expect(page).to have_content("Best Buy Mobile - Cherry Creek Shopping Center	")
     end
   end
 end
