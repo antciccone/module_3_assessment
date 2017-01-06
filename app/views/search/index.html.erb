@@ -6,7 +6,7 @@
     <th>Phone</th>
     <th>Store Type</th>
   </tr>
-  <%= @stores.each do |store| %>
+  <%@stores.each do |store| %>
   <tr>
     <td> <%= store.name %>  </td>
     <td> <%= store.city %>  </td>
@@ -14,4 +14,5 @@
     <td><%= store.phone %> </td>
     <td><%= store.type %> </td>
   </tr>
+  <% end %>
 </table>

@@ -8,7 +8,6 @@ describe 'As a user' do
 
       fill_in :zip, with: '80202'
 
-      #expect(current_path).to eq(search_path)
       expect(page).to have_content("16 Total Stores")
       expect(page).to have_content("Name")
       expect(page).to have_content("Distance")

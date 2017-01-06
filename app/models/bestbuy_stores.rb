@@ -10,7 +10,6 @@ class BestbuyStores
   end
 
   def self.stores(zip)
-    require "pry"; binding.pry
     BestbuyService.new.best_buy_stores(zip).map do |raw_info|
       BestbuyStores.new(raw_info)
     end
